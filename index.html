@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>images viewer</title>
+</head>
+<body>
+    <textarea onchange="taChanged()" placeholder="Put image urls here , split by enter" id="ta"></textarea>
+    <div id="img-container"></div>
+    <script>
+        function taChanged(){
+            console.log("ta changed");
+            let ta = document.getElementById('ta');
+            let imgContainer = document.getElementById('img-container');
+            imgContainer.innerHTML = '';
+            let imgs = ta.value.split('\n');
+            for(let i = 0; i < imgs.length; i++){
+                let p = document.createElement('p');
+                let img = document.createElement('img');
+                img.src = imgs[i];
+                p.appendChild(img);
+                imgContainer.appendChild(p);
+            }
+        }
+    </script>
+</body>
+</html>
